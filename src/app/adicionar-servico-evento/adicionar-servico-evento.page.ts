@@ -16,6 +16,7 @@ export class AdicionarServicoEventoPage implements OnInit {
   anggota: any;
   eventos: any = [];
   idService:number;
+  idEvento: number;
   idUsuario: number;
   limit: number = 13;
   start: number = 0;
@@ -42,6 +43,17 @@ export class AdicionarServicoEventoPage implements OnInit {
     this.start = 0;
     this.loadEvento();
     
+    this.storage.get('session_storage_servico').then((res)=>{
+      this.anggota = res;
+      this.idService = this.anggota.idService;
+      console.log(res);
+
+      this.storage.get('session_storage2').then((res)=>{
+        this.anggota = res;
+        this.idEvento = this.anggota.idEvento;
+        console.log(res);
+      });
+    });
   }
 
   loadEvento(){
@@ -51,6 +63,7 @@ export class AdicionarServicoEventoPage implements OnInit {
         this.idUsuario = this.anggota.idUsuario;
         let body = {
           idUsuario: this.idUsuario,
+          idEvento: this.idEvento,
           limit : this.limit,
   			  start : this.start,
           aksi : 'getevento',
@@ -76,9 +89,12 @@ export class AdicionarServicoEventoPage implements OnInit {
   	}, 500);
   }
 
-/*formCalculadorab(){
-    this.router.navigate(['/calculadora-b']);
-  }
-*/
+  formListaServico(id){
+    this.actRoute.params.subscribe((data: any) =>{
+    this.idEvento = data.id;
+    this.router.navigate(['/servicos-contratados/' + id]);
+      });
+}
+
 
   }
