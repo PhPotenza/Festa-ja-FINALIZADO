@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar color="light">
+        <ion-buttons slot="start">
+        <ion-back-button icon="md-arrow-back" ></ion-back-button>
+          </ion-buttons>
+      <ion-title>Calculadora</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content class="ion-padding">
+    <h4><b>Comidas de Churrasco</b></h4>
+
+    <ion-list no-lines>
+  
+       <h4>Boi</h4>
+
+      <ion-item *ngFor="let Churras_boi of Churras_bois">
+			  <ion-label>{{Churras_boi.name}}</ion-label>
+			  <ion-checkbox slot="end" [(ngModel)]="Churras_boi.isChecked"></ion-checkbox>
+		  </ion-item>
+      
+      <h4>Porco</h4>
+
+      <ion-item *ngFor="let Churras_porco of Churras_porcos">
+			  <ion-label>{{Churras_porco.name}}</ion-label>
+			  <ion-checkbox slot="end" [(ngModel)]="Churras_porco.isChecked"></ion-checkbox>
+		  </ion-item>
+
+      <h4>Frango</h4>
+
+      <ion-item *ngFor="let Churras_frango of Churras_frangos">
+			  <ion-label>{{Churras_frango.name}}</ion-label>
+			  <ion-checkbox slot="end" [(ngModel)]="Churras_frango.isChecked"></ion-checkbox>
+		  </ion-item>
+
+      <h4>Outros</h4>
+
+      <ion-item *ngFor="let Churras_outro of Churras_outros">
+			  <ion-label>{{Churras_outro.name}}</ion-label>
+			  <ion-checkbox slot="end" [(ngModel)]="Churras_outro.isChecked"></ion-checkbox>
+      </ion-item>
+      
+    </ion-list>
+  </ion-content>
+
+  <ion-footer class="ion-padding-bottom">
+			<ion-button class="ion-button" expand="block" color="light" (click)="formCalculadorae()">Continuar</ion-button>
+	</ion-footer> 

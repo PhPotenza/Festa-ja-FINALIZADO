@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-toolbar color="light">
+        <ion-buttons slot="start">
+        <ion-back-button icon="md-arrow-back" ></ion-back-button>
+          </ion-buttons>
+      <ion-title>Calculadora</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content class="ion-padding">
+	
+	<h4><b>Porções</b></h4>
+
+	<ion-list no-lines>
+
+		<ion-item *ngFor="let porcoes of porcoess">
+			<ion-label>{{porcoes.name}}</ion-label>
+			<ion-checkbox slot="end" [(ngModel)]="porcoes.isChecked"></ion-checkbox>
+		</ion-item>
+		
+	</ion-list>
+</ion-content>
+
+<ion-footer class="ion-padding-bottom">
+	<ion-button class="ion-button" expand="block" color="light" (click)="formCalculadoraf()">Continuar</ion-button>
+</ion-footer>  
