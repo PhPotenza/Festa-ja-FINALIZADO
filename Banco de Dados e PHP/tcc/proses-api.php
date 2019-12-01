@@ -421,12 +421,16 @@
     
   elseif($postjson['aksi']=='getServicosContratados'){
     $data = array();
-    $query = mysqli_query($mysqli, "SELECT * FROM listaservice WHERE idEvento='$postjson[idEvento]' ORDER BY idService LIMIT $postjson[start],$postjson[limit]");
+    $query = mysqli_query($mysqli, "SELECT ls.idListaService, ls.idEvento, ls.idService, s.Nome, s.Tipo, s.Descricao FROM listaservice ls INNER JOIN  service s ON ls.idService = s.idService WHERE ls.idEvento='$postjson[idEvento]' ORDER BY s.idService LIMIT $postjson[start],$postjson[limit]");
 
     while($row = mysqli_fetch_array($query)){
 
       $data[] = array(
         'idService' => $row['idService'],
+        'Nome' => $row['Nome'],
+        'Tipo' => $row['Tipo'],
+        'Descricao' => $row['Descricao'],
+
       );
     }
 
@@ -459,13 +463,15 @@
   //metodo para selecionar servicos para serviços contratados
   elseif($postjson['aksi']=='selectServicosContratados'){
     $data = array();
-    $query = mysqli_query($mysqli, "SELECT * FROM listaservice  INNER JOIN  service ON listaservice.idService = service.idService WHERE listaservice.idEvento='$postjson[idEvento]'");
-
+    $query = mysqli_query($mysqli, "SELECT ls.idListaService, ls.idEvento, ls.idService, s.Nome, s.Tipo, s.Descricao FROM listaservice ls INNER JOIN  service s ON ls.idService = s.idService WHERE ls.idEvento='$postjson[idEvento]'");
     $data = mysqli_fetch_array($query);
     $datauser = array(
       'idEvento' => $data['idEvento'],
       'idService' => $data['idService'],
       'idListaService' => $data['idListaService'],
+      'Nome' => $data['Nome'],
+      'Tipo' => $data['Tipo'],
+      'Descricao' => $data['Descricao'],
     );
     $result = json_encode(array('success'=>true, 'result'=>$datauser));
     echo $result;

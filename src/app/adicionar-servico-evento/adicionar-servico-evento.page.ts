@@ -15,6 +15,7 @@ export class AdicionarServicoEventoPage implements OnInit {
 
   anggota: any;
   eventos: any = [];
+  idService:number;
   idUsuario: number;
   limit: number = 13;
   start: number = 0;
@@ -39,7 +40,8 @@ export class AdicionarServicoEventoPage implements OnInit {
     });
     this.eventos = [];
     this.start = 0;
-  	this.loadEvento();
+    this.loadEvento();
+    
   }
 
   loadEvento(){
