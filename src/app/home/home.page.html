@@ -4,6 +4,9 @@
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
     <ion-title>FestaJa</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear"><ion-icon name="notifications"></ion-icon></ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding">
@@ -33,7 +36,7 @@
   <h4><b>Seus Eventos...</b></h4>
 <ion-list>
   <ion-item-sliding *ngFor="let evento of eventos">
-      <ion-card bgcolor="green">
+      <ion-card>
         <ion-item>
         <ion-card-title (click)="perfilEvento(evento.idEvento)">{{evento.NomeEvento}}</ion-card-title>
         <ion-icon (click)="confirmar(evento.idEvento, evento.NomeEvento)" color="danger" name="trash" slot="end"></ion-icon>

@@ -16,17 +16,17 @@
         <!--Form mbsc-->
 		<mbsc-form [options]="formSettings">
 		
-				<mbsc-stepper [(ngModel)]="stepper1" color="primary" val="left">Homens
+				<mbsc-stepper [(ngModel)]="homens" color="primary" val="left">Homens
 					<span class="mbsc-desc">A partir de 18 anos</span>
 				</mbsc-stepper>
-				<mbsc-stepper [(ngModel)]="stepper2" color="primary" val="left">Mulheres
+				<mbsc-stepper [(ngModel)]="mulheres" color="primary" val="left">Mulheres
 					<span class="mbsc-desc">A partir de 18 anos</span>
 				</mbsc-stepper>
-				<mbsc-stepper [(ngModel)]="stepper4" color="primary" val="left">Adolescentes
+				<mbsc-stepper [(ngModel)]="adolescentes" color="primary" val="left">Adolescentes
 					<span class="mbsc-desc">14-18 anos</span>
 				</mbsc-stepper>
-				<mbsc-stepper [(ngModel)]="stepper3" color="primary"  val="left">Crianças
-					<span class="mbsc-desc">2-14 anos</span>
+				<mbsc-stepper [(ngModel)]="criancas" color="primary"  val="left">Crianças
+					<span class="mbsc-desc">4-14 anos</span>
 				</mbsc-stepper>
 			
 		</mbsc-form>
@@ -34,14 +34,10 @@
 
 
 		<h4 class="padding-top"><b>Informe a duração do evento</b></h4>
-
-		<ion-item>
-			<ion-label>Horas</ion-label>
-			<div align="end">
-				<ion-input type="number" inputmode="numeric"></ion-input>
-			</div>
-		</ion-item>
-
+		<mbsc-form [options]="formSettings">
+		<mbsc-stepper [(ngModel)]="horas" color="primary" step="0.5"  val="left">Horas
+		</mbsc-stepper>
+	</mbsc-form>
 
 	</ion-list>
 

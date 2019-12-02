@@ -14,7 +14,6 @@ import { LoadingController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
 
-
   anggota: any;
   mes1: number;
   eventos: any = [];
@@ -24,6 +23,7 @@ export class HomePage implements OnInit {
   pesquisar: string = "";
   tipo: string = "todos";
   chave: boolean = true;
+  FirstTime: string;
 
   constructor(
     private router: Router,
@@ -40,25 +40,35 @@ export class HomePage implements OnInit {
     this.storage.get('session_storage').then((res)=>{
       this.anggota = res;
       this.idUsuario = this.anggota.idUsuario;
+      this.FirstTime = this.anggota.FirstTime;
       console.log(res);
+      if(this.FirstTime=="y"){
+        this.router.navigate(['/welcome']);
+      }
+      else{
+        this.ionViewWillEnter();
+      }
     });
-    this.eventos = [];
-    this.start = 0;
-  	this.loadEvento();
+
   }
 
   ionViewWillEnter(){
-    if(this.chave==true){
-      this.eventos=[];
-    this.presentLoadingWithOptions();
-    this.chave=false;
-    }
     this.menuCtrl.enable(true);
     this.storage.get('session_storage').then((res)=>{
       this.anggota = res;
       this.idUsuario = this.anggota.idUsuario;
+      this.FirstTime=this.anggota.FirstTime;
       console.log(res);
     });
+    if(this.FirstTime=="y"){
+      this.router.navigate(['/welcome']);
+    }
+    else{  
+      if(this.chave==true){
+      this.eventos=[];
+    this.presentLoadingWithOptions();
+    this.chave=false;
+    }}
   }  
 
   loadEvento(){

@@ -3,6 +3,8 @@ import { ToastController } from '@ionic/angular';
 import { PostProvider } from '../../providers/post-provider';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/Storage';
+import { BrMaskDirective, BrMaskModel } from 'br-mask';
+
 
 
 @Component({
@@ -12,7 +14,8 @@ import { Storage } from '@ionic/Storage';
 })
 export class RegisterPage implements OnInit {
   
-
+  anio: number = new Date().getFullYear();
+  ano: number;
   username: string = "";
   password: string = "";
   confirm_password: string = "";
@@ -34,6 +37,7 @@ export class RegisterPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.ano=this.anio-14;
   }
 
   async prosesRegister(){

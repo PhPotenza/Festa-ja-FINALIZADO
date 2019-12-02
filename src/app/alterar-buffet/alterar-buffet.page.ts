@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController, ToastController, AlertController } from '@ionic/angular';
 import { PostProvider } from 'src/providers/post-provider';
 import { Storage } from '@ionic/Storage';
+import { MbscFormOptions } from '@mobiscroll/angular';
 
 
 @Component({
@@ -11,6 +12,11 @@ import { Storage } from '@ionic/Storage';
   styleUrls: ['./alterar-buffet.page.scss'],
 })
 export class AlterarBuffetPage implements OnInit {
+
+  formSettings: MbscFormOptions = {
+    lang: 'pt-BR',
+    theme: 'ios'
+};
 
   idBuffet: number;
   anggota: any;

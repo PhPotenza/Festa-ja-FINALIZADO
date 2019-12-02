@@ -19,6 +19,11 @@ export class AppComponent {
       icon: 'home'
     },
     {
+      title: 'Cadastrar Serviços',
+      url: '/cadastrar-servico',
+      icon: 'briefcase'
+    },
+    {
       title: 'Perfil',
       url: '/perfil-cliente',
       icon: 'person'
@@ -32,6 +37,11 @@ export class AppComponent {
       title: 'Pesquisar Serviço',
       url: '/pesquisar-servico',
       icon: 'search'
+    },
+    {
+      title: 'Perfil Serviço',
+      url: '/perfil-servico',
+      icon: 'briefcase'
     },
     {
       title: 'Meus Serviços',

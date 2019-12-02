@@ -15,9 +15,9 @@ const routes: Routes = [
   { path: 'alterar-senha', loadChildren: './alterar-senha/alterar-senha.module#AlterarSenhaPageModule' },
   { path: 'perfil-cliente', loadChildren: './perfil-cliente/perfil-cliente.module#PerfilClientePageModule' },
   { path: 'editar-perfil', loadChildren: './editar-perfil/editar-perfil.module#EditarPerfilPageModule' },
-  { path: 'buffet/:id', loadChildren: './buffet/buffet.module#BuffetPageModule' },
+  { path: 'buffet', loadChildren: './buffet/buffet.module#BuffetPageModule' },
   { path: 'perfil-evento', loadChildren: './perfil-evento/perfil-evento.module#PerfilEventoPageModule' },
-  { path: 'editar-servico/:id', loadChildren: './editar-servico/editar-servico.module#EditarServicoPageModule' },
+  { path: 'editar-servico', loadChildren: './editar-servico/editar-servico.module#EditarServicoPageModule' },
   { path: 'convidados', loadChildren: './convidados/convidados.module#ConvidadosPageModule' },
   { path: 'adicionar-convidados', loadChildren: './adicionar-convidados/adicionar-convidados.module#AdicionarConvidadosPageModule' },
   { path: 'divulgar-evento', loadChildren: './divulgar-evento/divulgar-evento.module#DivulgarEventoPageModule' },
@@ -43,7 +43,11 @@ const routes: Routes = [
   { path: 'perfil-servico/:id', loadChildren: './perfil-servico/perfil-servico.module#PerfilServicoPageModule' },
   { path: 'alterar-buffet/:id', loadChildren: './alterar-buffet/alterar-buffet.module#AlterarBuffetPageModule' },
   { path: 'alterar-convidados/:id', loadChildren: './alterar-convidados/alterar-convidados.module#AlterarConvidadosPageModule' },
-  { path: 'servicos-contratados/:id', loadChildren: './servicos-contratados/servicos-contratados.module#ServicosContratadosPageModule' },  { path: 'adicionar-servico-evento', loadChildren: './adicionar-servico-evento/adicionar-servico-evento.module#AdicionarServicoEventoPageModule' },
+  { path: 'welcome', loadChildren: './welcome/welcome.module#WelcomePageModule' },
+  { path: 'carregamento1', loadChildren: './carregamento1/carregamento1.module#Carregamento1PageModule' },
+  { path: 'carregamento2', loadChildren: './carregamento2/carregamento2.module#Carregamento2PageModule' },  { path: 'adicionar-servico-evento', loadChildren: './adicionar-servico-evento/adicionar-servico-evento.module#AdicionarServicoEventoPageModule' },
+  { path: 'servicos-contratados', loadChildren: './servicos-contratados/servicos-contratados.module#ServicosContratadosPageModule' },
+
 
 
 

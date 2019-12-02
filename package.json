@@ -27,7 +27,8 @@
         "@ionic/angular": "^4.11.3",
         "@ionic/storage": "^2.2.0",
         "@material/floating-label": "^3.2.0",
-        "@mobiscroll/angular": "https://npm.mobiscroll.com/@mobiscroll/angular-trial/-/angular-trial-4.8.4.tgz",
+        "@mobiscroll/angular": "https://npm.mobiscroll.com/@mobiscroll/angular-trial/-/angular-trial-4.9.0.tgz",
+        "@pluritech/ion-mask": "^1.2.0",
         "br-mask": "0.0.8",
         "cordova": "^9.0.0",
         "cordova-android": "^8.1.0",
@@ -78,9 +79,7 @@
         "plugins": {
             "cordova-plugin-facebook4": {
                 "APP_ID": "2504397236324525",
-                "APP_NAME": "FestaJa",
-                "FACEBOOK_HYBRID_APP_EVENTS": "false",
-                "FACEBOOK_ANDROID_SDK_VERSION": "5.5.2"
+                "APP_NAME": "FestaJa"
             },
             "cordova-plugin-whitelist": {},
             "cordova-plugin-statusbar": {},

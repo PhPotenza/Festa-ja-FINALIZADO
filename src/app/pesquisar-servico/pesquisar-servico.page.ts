@@ -89,10 +89,4 @@ export class PesquisarServicoPage implements OnInit {
     this.tipo="todos";
     }
   }
-
-  goToPerfilServico(id){
-    this.router.navigate(['/perfil-servico/' + id]);
-  }
-
-
 }

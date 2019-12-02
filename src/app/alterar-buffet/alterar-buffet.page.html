@@ -33,10 +33,6 @@
       </ion-select>
     </ion-item>
     <ion-item lines="none">
-      <ion-label position="floating">Quantidade</ion-label>
-        <ion-input type="number" inputmode="numeric" [(ngModel)]="quant"></ion-input>
-    </ion-item>
-    <ion-item lines="none">
       <ion-label position="floating">Unidade</ion-label>
       <ion-select multiple="false" cancelText="Cancelar" okText="Selecionar" [(ngModel)]="unid">
           <ion-select-option value="Unid.">Unid.</ion-select-option>
@@ -46,6 +42,12 @@
           <ion-select-option value="ml">ml</ion-select-option>
       </ion-select>
     </ion-item>
+    <ion-item lines="none">
+      <mbsc-form  lines="none" [options]="formSettings">
+        <mbsc-stepper lines="none" [(ngModel)]="quant" color="primary" step="0.5"  val="left">Quantidade
+        </mbsc-stepper>
+      </mbsc-form>
+  </ion-item>
    </ion-list>
    </ion-card>
 </ion-content>

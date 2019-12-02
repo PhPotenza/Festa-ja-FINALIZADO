@@ -14,15 +14,11 @@ import { AlertController } from '@ionic/angular';
 })
 export class PerfilServicoPage implements OnInit {
 
-  idService: number = 0;
-  Nome: string = "";
-  Tipo: string= "";
-  Descricao: string = "";
-  Estado: string = "";
-  Cidade: string = "";
-  Celular: string = "";
-  Telefone: string = "";
-  /*comentarios: string = "";*/
+  id_servico: number = 0;
+  nome_servico: string = "";
+  tipo_servico: string= "";
+  descricao_servico: string = "";
+  comentarios: string = "";
   anggota: any;
 
   constructor(
@@ -37,23 +33,19 @@ export class PerfilServicoPage implements OnInit {
 
   ngOnInit() {
     this.actRoute.params.subscribe((data: any) => {
-      this.idService = data.id;
+      this.id_servico = data.id;
       let body = {
-        idService: this.idService,
+        idService: this.id_servico,
         aksi: 'selectServico',
       };
       this.postPvdr.postData(body, 'proses-api.php').subscribe(data => {
         if (data.success) {
-          this.storage.set('session_storage_servico', data.result);
-              this.storage.get('session_storage_servico').then((res)=>{
+          this.storage.set('session_storage3', data.result);
+              this.storage.get('session_storage3').then((res)=>{
             this.anggota = res;
-            this.Nome = this.anggota.Nome;
-            this.Tipo = this.anggota.Tipo;
-            this.Descricao = this.anggota.Descricao;
-            this.Estado = this.anggota.Estado;
-            this.Cidade = this.anggota.Cidade;
-            this.Celular = this.anggota.Celular;
-            this.Telefone = this.anggota.Telefone;
+            this.nome_servico = this.anggota.Nome;
+            this.tipo_servico = this.anggota.Tipo;
+            this.descricao_servico = this.anggota.Descricao;
             console.log(res);
           });
         }
@@ -63,23 +55,19 @@ export class PerfilServicoPage implements OnInit {
 
   ionViewWillEnter(){
     this.actRoute.params.subscribe((data: any) =>{
-      this.idService = data.id;
+      this.id_servico = data.id;
       let body = {
-        idService: this.idService,
+        idService: this.id_servico,
         aksi : 'selectServico',
       };
       this.postPvdr.postData(body, 'proses-api.php').subscribe(data => {
         if(data.success){
-          this.storage.set('session_storage_servico', data.result);
-          this.storage.get('session_storage_servico').then((res)=>{
+          this.storage.set('session_storage3', data.result);
+          this.storage.get('session_storage3').then((res)=>{
             this.anggota = res;
-            this.Nome = this.anggota.Nome;
-            this.Tipo = this.anggota.Tipo;
-            this.Descricao = this.anggota.Descricao;
-            this.Estado = this.anggota.Estado;
-            this.Cidade = this.anggota.Cidade;
-            this.Celular = this.anggota.Celular;
-            this.Telefone = this.anggota.Telefone;
+            this.nome_servico = this.anggota.Nome;
+            this.tipo_servico = this.anggota.Tipo;
+            this.descricao_servico = this.anggota.Descricao;
             console.log(res);
           });
         }
@@ -87,11 +75,9 @@ export class PerfilServicoPage implements OnInit {
     });
   }
 
-  goToAdicionarServicoEvento() {
-    this.router.navigate(['/adicionar-servico-evento']);
+  goToEditarServico() {
+    this.router.navigate(['/editar-servico']);
   }
-
-
 
 //   async presentActionSheet() {
 //     const actionSheet = await this.actionSheetController.create({

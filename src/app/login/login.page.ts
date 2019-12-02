@@ -4,6 +4,7 @@ import { PostProvider } from '../../providers/post-provider';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/Storage';
 import {  MenuController } from '@ionic/angular';
+import { resolveDefinition } from '@angular/core/src/view/util';
 
 
 @Component({
@@ -15,6 +16,8 @@ export class LoginPage implements OnInit {
   
   username: string = "";
   password: string = "";
+  anggota: any;
+  First: string= "";
 
   constructor(
   	private router: Router,
@@ -49,13 +52,14 @@ export class LoginPage implements OnInit {
       var alertpesan = data.msg;
       if(data.success){
         this.storage.set('session_storage', data.result);
-        this.router.navigate(['/home']);
-        const toast = await this.toastCtrl.create({
-      message: 'Logado com Sucesso.',
-      duration: 2000
-    });
-    toast.present();
         console.log(data);
+        this.router.navigate(['/home']);
+      const toast = await this.toastCtrl.create({
+        message: 'Logado com Sucesso.',
+        duration: 2000
+      });
+      toast.present();
+        
       }else{
         const toast = await this.toastCtrl.create({
       message: alertpesan,
@@ -63,10 +67,14 @@ export class LoginPage implements OnInit {
     });
       toast.present();
       }
-    });
+      });
+      
+    
+    
 
     }
   }
+ 
 
   formRegister(){
     this.router.navigate(['/register']);

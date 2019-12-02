@@ -3,6 +3,7 @@ import { ToastController } from '@ionic/angular';
 import { PostProvider } from '../../providers/post-provider';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/Storage';
+import { MbscFormOptions } from '@mobiscroll/angular';
 
 @Component({
   selector: 'app-adicionar-buffet',
@@ -11,11 +12,16 @@ import { Storage } from '@ionic/Storage';
 })
 export class AdicionarBuffetPage implements OnInit {
 
+  formSettings: MbscFormOptions = {
+    lang: 'pt-BR',
+    theme: 'ios'
+};
+
   nome: string="";
   tipo: string="";
   quant: number;
   unid: string ="";
-  idEvento: number;
+  idEvento: number= 0;
   anggota: any;
 
   constructor(

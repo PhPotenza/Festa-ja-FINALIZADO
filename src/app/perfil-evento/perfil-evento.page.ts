@@ -223,20 +223,13 @@ this.dia2=this.day2;
   }
 
 
-  formBuffet(id){
-        this.actRoute.params.subscribe((data: any) =>{
-      this.idEvento = data.id;
-       this.router.navigate(['/buffet/'+ id]);
-    });
-   
+  formBuffet(){
+    this.router.navigate(['/buffet']);
   } 
   formConvidados(){
     this.router.navigate(['/convidados']);
   }
-  formServico(id){
-    this.actRoute.params.subscribe((data: any) =>{
-    this.idEvento = data.id;
-    this.router.navigate(['/servicos-contratados/' + id]);
-  });
-  }
+  formServico(){
+    this.router.navigate(['/pesquisar-servico']);
+  }  
 }

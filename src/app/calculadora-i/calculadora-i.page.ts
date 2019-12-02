@@ -4,6 +4,7 @@ import { PostProvider } from '../../providers/post-provider';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/Storage';
 import { AlertController } from '@ionic/angular';
+import { MbscFormOptions } from '@mobiscroll/angular';
 
 
 @Component({
@@ -29,6 +30,16 @@ export class CalculadoraIPage implements OnInit {
  ) { }
 
   ngOnInit() {
+  this.storage.get('session_dados').then((res)=>{
+            this.anggota = res;
+            this.homens = this.anggota.homens;
+            this.mulheres = this.anggota.mulheres;
+            this.adolescentes = this.anggota.adolescentes;
+            this.criancas = this.anggota.criancas;
+            console.log(res);
+    });
   }
+
+  
 
 }

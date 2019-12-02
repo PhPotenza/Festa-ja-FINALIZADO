@@ -14,11 +14,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
 import { PostProvider } from '../providers/post-provider';
 import { IonicStorageModule } from '@ionic/Storage';
+import { BrMaskerModule } from 'br-mask';
+
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [ 
+  imports: [
+    BrMaskerModule,
     MbscModule,  
     FormsModule,  
   	BrowserModule,
