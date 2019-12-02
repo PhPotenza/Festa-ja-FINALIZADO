@@ -647,7 +647,20 @@
     else $result = json_encode(array('success'=>false, 'result'=>'error', 'msg'=>'Erro ao deletar'));
 
     echo $result;
+  }
 
+  //método para adicionar evento
+  elseif($postjson['aksi']=='addServiceEvento'){
+    $query = mysqli_query($mysqli, "INSERT INTO listaservice SET
+      idEvento = '$postjson[idEvento]',
+      idService = '$postjson[idService]'
+    ");
+
+    if($query) $result = json_encode(array('success'=>true));
+    else $result = json_encode(array('success'=>false, 'msg'=>'Erro! Por favor tente novamente'));
+
+    echo $result;
 
   }
+
 ?>

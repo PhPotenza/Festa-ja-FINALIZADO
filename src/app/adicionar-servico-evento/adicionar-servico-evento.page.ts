@@ -48,7 +48,7 @@ export class AdicionarServicoEventoPage implements OnInit {
       this.idService = this.anggota.idService;
       console.log(res);
 
-      this.storage.get('session_storage2').then((res)=>{
+      this.storage.get('session_storage2').then((ras)=>{
         this.anggota = res;
         this.idEvento = this.anggota.idEvento;
         console.log(res);
@@ -89,12 +89,42 @@ export class AdicionarServicoEventoPage implements OnInit {
   	}, 500);
   }
 
-  formListaServico(id){
-    this.actRoute.params.subscribe((data: any) =>{
-    this.idEvento = data.id;
-    this.router.navigate(['/servicos-contratados/' + id]);
+  async formListaServico(id){
+    return new Promise(resolve => {
+      this.storage.get('session_storage_servico').then(async (res)=>{
+        this.anggota = res;
+        this.idService = this.anggota.idService;
+    this.storage.get('session_storage2').then(async (ras)=>{
+        this.anggota = ras;
+        this.idEvento = this.anggota.idEvento;
+      let body = {
+        idService: this.idService,
+        idEvento: this.idEvento,
+        aksi: 'addServiceEvento'
+      };
+
+      this.postPvdr.postData(body, 'proses-api.php').subscribe(async data =>{
+        var alertpesan = data.msg;
+        if(data.success){
+          this.actRoute.params.subscribe((data: any) =>{
+            this.idEvento = data.id;
+            this.router.navigate(['/servicos-contratados/' + id]);
+          });
+          const toast = await this.toastCtrl.create({
+            message: 'Adicionado com Sucesso',
+            duration: 3000
+          });
+          toast.present();
+        }else{
+          const toast = await this.toastCtrl.create({
+            message: alertpesan,
+            duration: 3000
+          });
+          toast.present();
+        }
       });
+    });
+  });
+  });
 }
-
-
-  }
+}
